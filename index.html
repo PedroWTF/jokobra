@@ -1,79 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>tuyul detected.</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: black;
-      color: #00FF90;
-      font-family: 'Courier New', monospace;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.2rem;
-    }
+<img src="jokowi.png" class="glitch-img" alt="glitch spirit">
 
-    #container {
-      white-space: pre-wrap;
-      text-align: left;
-      max-width: 80ch;
-      line-height: 1.6;
-    }
+<style>
+.glitch-img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  animation: shake 0.2s infinite, blur 3s infinite;
+  z-index: -1;
+  opacity: 0.8;
+  filter: brightness(120%) contrast(140%);
+}
 
-    .cursor::after {
-      content: "_";
-      animation: blink 1s step-start infinite;
-    }
+@keyframes shake {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  25% { transform: translate(-49%, -51%) rotate(1deg); }
+  50% { transform: translate(-51%, -49%) rotate(-1deg); }
+  75% { transform: translate(-50.5%, -50.5%) rotate(0.5deg); }
+  100% { transform: translate(-50%, -50%) rotate(0deg); }
+}
 
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-  </style>
-</head>
-<body>
-  <div id="container" class="cursor"></div>
-
-  <script>
-    const lines = [
-      "mengakses sistem otak anda...",
-      "loading meme spiritual...",
-      "verifikasi tuyul...",
-      "✔️ otentikasi tuyul sukses.",
-      "",
-      "siapa nama anda sebelum wifi ditemukan?",
-      "apa tujuan anda hidup di dunia digital ini?",
-      "",
-      "🚨 deteksi: manusia ketawa sendiri di kamar gelap.",
-      "🐓🛐🛸💊🧠",
-      "",
-      '"anda telah tersedot ke web ini. selamat, anda sekarang tuyul digital."',
-    ];
-
-    let container = document.getElementById("container");
-    let delay = 60;
-    let i = 0;
-
-    function typeLine(lineIndex = 0, charIndex = 0) {
-      if (lineIndex >= lines.length) {
-        container.classList.remove("cursor");
-        return;
-      }
-
-      if (charIndex < lines[lineIndex].length) {
-        container.innerHTML += lines[lineIndex][charIndex];
-        setTimeout(() => typeLine(lineIndex, charIndex + 1), delay);
-      } else {
-        container.innerHTML += "\n";
-        setTimeout(() => typeLine(lineIndex + 1, 0), delay * 5);
-      }
-    }
-
-    typeLine();
-  </script>
-</body>
-</html>
+@keyframes blur {
+  0%, 100% { filter: blur(0px); }
+  50% { filter: blur(3px); }
+}
+</style>
