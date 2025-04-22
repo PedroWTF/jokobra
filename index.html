@@ -2,64 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>jokobra.exe</title>
+  <title>tuyul detected.</title>
   <style>
     html, body {
-      background: black;
-      color: #00fff7;
-      font-family: 'Courier New', monospace;
       margin: 0;
-      padding: 2rem;
-      font-size: 1.1rem;
-      overflow-x: hidden;
+      padding: 0;
+      background: black;
+      color: #00FF90;
+      font-family: 'Courier New', monospace;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
     }
 
-    .terminal::after {
+    #container {
+      white-space: pre-wrap;
+      text-align: left;
+      max-width: 80ch;
+      line-height: 1.6;
+    }
+
+    .cursor::after {
       content: "_";
-      animation: blink 1s infinite step-start;
+      animation: blink 1s step-start infinite;
     }
 
     @keyframes blink {
       50% { opacity: 0; }
     }
-
-    .glitch {
-      animation: glitch 0.8s infinite;
-    }
-
-    @keyframes glitch {
-      0% { text-shadow: 2px 0 red, -2px 0 cyan; }
-      20% { text-shadow: -1px 0 red, 1px 0 lime; }
-      40% { text-shadow: 3px 0 magenta, -3px 0 yellow; }
-      60% { text-shadow: 0 0 red, 0 0 cyan; }
-      80% { text-shadow: 2px 0 blue, -2px 0 green; }
-      100% { text-shadow: none; }
-    }
-
-    pre {
-      white-space: pre-wrap;
-      line-height: 1.6;
-    }
   </style>
 </head>
 <body>
-  <pre class="terminal glitch">
-[initializing jokobra.exe]
-connecting to multiverse node #404...
-ERROR: identity overflow
-retrieving soul fragment...
+  <div id="container" class="cursor"></div>
 
-> nama gw jokobra.  
-> presiden dimensi ketujuh.  
-> hasil eksperimen nasi uduk yang disuntik bitcoin.  
-> dibesarkan di ruang rapat DPR palsu, disekolahkan oleh tuyul bersertifikat.
+  <script>
+    const lines = [
+      "mengakses sistem otak anda...",
+      "loading meme spiritual...",
+      "verifikasi tuyul...",
+      "✔️ otentikasi tuyul sukses.",
+      "",
+      "siapa nama anda sebelum wifi ditemukan?",
+      "apa tujuan anda hidup di dunia digital ini?",
+      "",
+      "🚨 deteksi: manusia ketawa sendiri di kamar gelap.",
+      "🐓🛐🛸💊🧠",
+      "",
+      '"anda telah tersedot ke web ini. selamat, anda sekarang tuyul digital."',
+    ];
 
-> /akses file: society/sindiran.exe  
-> LOADING... █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+    let container = document.getElementById("container");
+    let delay = 60;
+    let i = 0;
 
-"anda sedang tidak menyadari bahwa semuanya cuma simulasi,  
-dan simulasi ini dipegang oleh entitas yang lupa log out."
+    function typeLine(lineIndex = 0, charIndex = 0) {
+      if (lineIndex >= lines.length) {
+        container.classList.remove("cursor");
+        return;
+      }
 
-</pre>
+      if (charIndex < lines[lineIndex].length) {
+        container.innerHTML += lines[lineIndex][charIndex];
+        setTimeout(() => typeLine(lineIndex, charIndex + 1), delay);
+      } else {
+        container.innerHTML += "\n";
+        setTimeout(() => typeLine(lineIndex + 1, 0), delay * 5);
+      }
+    }
+
+    typeLine();
+  </script>
 </body>
 </html>
