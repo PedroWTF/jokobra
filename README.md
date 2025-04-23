@@ -35,7 +35,7 @@ Lu bisa temuin:
 
 - HTML (tanpa CSS karena males)
 - GitHub Pages (biar bisa online tanpa biaya dan drama)
-- Emosi, satire, dan sedikit kopi sachet
+- Emosi, satire, dan sedikit C₂₁H₃₀O₂ 
 
 ---
 
